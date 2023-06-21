@@ -2,7 +2,7 @@
 
 flask db upgrade
 
-if $AIRBYTE_ENABLED; then
+if [ "$AIRBYTE_ENABLED" = "True" ] ; then #Changed
   while ! timeout 1 bash -c "echo > /dev/tcp/server/8001"; do   
     sleep 1
   done
